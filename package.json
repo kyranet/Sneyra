@@ -1,0 +1,16 @@
+{
+  "name": "sneyra",
+  "version": "1.0.0",
+  "description": "Extension of Skyra - Music-only bot.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kyraNET",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:hydrabolt/discord.js#57b69803132355b506f9919f37a55915ccdf86d3",
+    "fs-nextra": "^0.2.0",
+    "komada": "github:dirigeants/komada#indev"
+  }
+}
