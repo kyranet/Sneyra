@@ -7,10 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kyraNET",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "discord.js": "github:hydrabolt/discord.js#57b69803132355b506f9919f37a55915ccdf86d3",
-    "fs-nextra": "^0.2.0",
-    "komada": "github:dirigeants/komada#indev"
+    "discord.js": "github:hydrabolt/discord.js",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "fs-nextra": "github:bdistin/fs-nextra",
+    "klasa": "github:dirigeants/klasa",
+    "moment-duration-format": "^1.3.0",
+    "node-opus": "^0.2.6",
+    "ytdl-core": "^0.14.4"
   }
 }

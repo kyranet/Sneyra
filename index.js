@@ -1,9 +1,8 @@
-const klasa = require('komada');
+const Client = require('./lib/Client');
 const config = require('./config.json');
 
-const client = new klasa.Client({
+const Sneyra = new Client({
     prefix: 'm!',
-    cmdPrompt: true,
     cmdEditing: true,
     disabledEvents: [
         'GUILD_BAN_ADD',
@@ -21,4 +20,7 @@ const client = new klasa.Client({
     ]
 });
 
-client.login(config.token);
+Sneyra.login(config.token);
+Sneyra.once('ready', () => {
+    for (const guild of Sneyra.guilds.values()) Sneyra.queue.create(guild);
+});
