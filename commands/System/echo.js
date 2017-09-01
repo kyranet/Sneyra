@@ -24,9 +24,7 @@ module.exports = class extends Command {
         const options = {};
         if (attachment) options.files = [{ attachment }];
 
-        return channel.send(content, options)
-            .then(() => channel !== msg.channel ? msg.alert(`Message successfully sent to ${channel}`) : true)
-            .catch(Command.handleError);
+        return channel.send(content, options);
     }
 
 };
