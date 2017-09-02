@@ -10,19 +10,16 @@ module.exports = class extends Command {
             usage: '[-force]',
             description: 'Skip the current song.'
         });
+
+        this.requireMusic = true;
     }
 
     async run(msg, [force]) {
-        if (!msg.member.voiceChannel) throw 'You are not connected in a voice channel.';
-        if (!msg.guild.me.voiceChannel) throw 'I am not connected in a voice channel.';
-
-        if (msg.member.voiceChannel.id !== msg.guild.me.voiceChannel.id) throw 'You must be in the same voice channel as me.';
-
         const { music } = msg.guild;
 
         if (music.voiceChannel.members.size > 4) {
             if (force) {
-                const hasPermission = await msg.hasLevel(1);
+                const hasPermission = await msg.hasLevel(5);
                 if (hasPermission === false) throw 'You can\'t execute this command with the force flag. You must be at least a Moderator Member.';
             } else {
                 const response = this.handleSkips(music, msg.author.id);

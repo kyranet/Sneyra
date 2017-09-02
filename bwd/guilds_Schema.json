@@ -1,0 +1,32 @@
+{
+    "prefix": {
+        "type": "String",
+        "default": "m!",
+        "array": false,
+        "sql": "TEXT NOT NULL DEFAULT 'm!'"
+    },
+    "language": {
+        "type": "String",
+        "default": "en-US",
+        "array": false,
+        "sql": "TEXT NOT NULL DEFAULT 'en-US'"
+    },
+    "disabledCommands": {
+        "type": "Command",
+        "default": [],
+        "array": true,
+        "sql": "TEXT DEFAULT '[]'"
+    },
+    "dj": {
+        "type": "Role",
+        "default": null,
+        "array": false,
+        "sql": "TEXT"
+    },
+    "administrator": {
+        "type": "Role",
+        "default": null,
+        "array": false,
+        "sql": "TEXT"
+    }
+}

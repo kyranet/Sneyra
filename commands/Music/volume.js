@@ -19,14 +19,11 @@ module.exports = class extends Command {
                 '👌'
             ].join('\n')
         });
+
+        this.requireMusic = true;
     }
 
     async run(msg, [vol]) {
-        if (!msg.member.voiceChannel) throw 'You are not connected in a voice channel.';
-        if (!msg.guild.me.voiceChannel) throw 'I am not connected in a voice channel.';
-
-        if (msg.member.voiceChannel.id !== msg.guild.me.voiceChannel.id) throw 'You must be in the same voice channel as me.';
-
         const { dispatcher, status } = msg.guild.music;
         if (status !== 'playing') throw `I am not playing a song. Current status: \`${status}\``;
 
