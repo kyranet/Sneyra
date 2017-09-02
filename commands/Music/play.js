@@ -27,6 +27,8 @@ module.exports = class extends Command {
     }
 
     async play(musicInterface) {
+        if (musicInterface.status !== 'playing') return null;
+
         const song = musicInterface.queue[0];
 
         if (!song) {
