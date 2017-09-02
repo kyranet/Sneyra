@@ -4,7 +4,11 @@ const { showSeconds } = require('../../lib/utils');
 module.exports = class extends Command {
 
     constructor(...args) {
-        super(...args, { runIn: ['text'] });
+        super(...args, {
+            runIn: ['text'],
+
+            description: 'Check the queue list.'
+        });
     }
 
     async run(msg) {

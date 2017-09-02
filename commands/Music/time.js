@@ -4,7 +4,11 @@ const { showSeconds } = require('../../lib/utils');
 module.exports = class extends Command {
 
     constructor(...args) {
-        super(...args, { runIn: ['text'] });
+        super(...args, {
+            runIn: ['text'],
+
+            description: 'Check how much time is left for the song to end.'
+        });
     }
 
     async run(msg) {

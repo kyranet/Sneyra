@@ -5,7 +5,11 @@ const getInfo = require('util').promisify(require('ytdl-core').getInfo);
 module.exports = class extends Command {
 
     constructor(...args) {
-        super(...args, { runIn: ['text'] });
+        super(...args, {
+            runIn: ['text'],
+
+            description: 'Get information from the current song.'
+        });
     }
 
     async run(msg) {

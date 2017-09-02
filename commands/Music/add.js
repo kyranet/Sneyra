@@ -11,7 +11,9 @@ module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
             runIn: ['text'],
-            usage: '<url:string>'
+
+            usage: '<url:string>',
+            description: 'Adds a song the the queue.'
         });
         this.regExp = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/\S*(?:(?:\/e(?:mbed)?)?\/|watch\/?\?(?:\S*?&?v=))|youtu\.be\/)([\w-]{11})(?:[^\w-]|$)/;
     }

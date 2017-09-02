@@ -5,7 +5,9 @@ module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
             runIn: ['text'],
-            aliases: ['connect']
+            aliases: ['connect'],
+
+            description: 'Joins the message author\'s voice channel.'
         });
     }
 

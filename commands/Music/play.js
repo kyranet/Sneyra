@@ -3,7 +3,11 @@ const { Command } = require('klasa');
 module.exports = class extends Command {
 
     constructor(...args) {
-        super(...args, { runIn: ['text'] });
+        super(...args, {
+            runIn: ['text'],
+
+            description: 'Let\'s start the queue!'
+        });
 
         this.delayer = time => new Promise(res => setTimeout(() => res(), time));
     }

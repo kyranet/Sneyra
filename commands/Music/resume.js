@@ -3,7 +3,11 @@ const { Command } = require('klasa');
 module.exports = class extends Command {
 
     constructor(...args) {
-        super(...args, { runIn: ['text'] });
+        super(...args, {
+            runIn: ['text'],
+
+            description: 'Resumes the current song.'
+        });
 
         this.requireMusic = true;
     }
