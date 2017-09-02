@@ -16,6 +16,9 @@ Sneyra is a music bot (yeah, another bot in this world) built on top of [Klasa](
 
 - `git` command line ([Windows](https://git-scm.com/download/win)|[Linux](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)|[MacOS](https://git-scm.com/download/mac)) installed
 - `node` [Version 8.1.0 or higher](https://nodejs.org)
+- `ffmpeg`: `npm install --global ffmpeg-binaries`
+- `node-opus`: `npm install node-opus` (alternatively you can use opusscript, but it's very bad for production, has memoryleaks and stream/quality issues).
+- A **good** network connection.
 
 ## Downloading
 
