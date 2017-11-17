@@ -17,7 +17,8 @@ const Sneyra = new Client({
         'MESSAGE_REACTION_ADD',
         'MESSAGE_REACTION_REMOVE',
         'MESSAGE_REACTION_REMOVE_ALL'
-    ]
+    ],
+    console: { useColor: true }
 });
 
 Sneyra.login(config.token);
