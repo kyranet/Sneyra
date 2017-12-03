@@ -1,32 +1,60 @@
 {
-    "prefix": {
-        "type": "String",
-        "default": "m!",
-        "array": false,
-        "sql": "TEXT NOT NULL DEFAULT 'm!'"
-    },
-    "language": {
-        "type": "String",
-        "default": "en-US",
-        "array": false,
-        "sql": "TEXT NOT NULL DEFAULT 'en-US'"
-    },
-    "disabledCommands": {
-        "type": "Command",
-        "default": [],
-        "array": true,
-        "sql": "TEXT DEFAULT '[]'"
-    },
-    "dj": {
-        "type": "Role",
-        "default": null,
-        "array": false,
-        "sql": "TEXT"
-    },
-    "administrator": {
-        "type": "Role",
-        "default": null,
-        "array": false,
-        "sql": "TEXT"
-    }
+	"type": "Folder",
+	"administrator": {
+		"type": "role",
+		"array": false,
+		"default": null,
+		"min": null,
+		"max": null,
+		"sql": "TEXT",
+		"configurable": true
+	},
+	"disabledCommands": {
+		"type": "command",
+		"array": true,
+		"default": [],
+		"min": null,
+		"max": null,
+		"sql": "TEXT DEFAULT '[]'",
+		"configurable": true
+	},
+	"dj": {
+		"type": "role",
+		"array": false,
+		"default": null,
+		"min": null,
+		"max": null,
+		"sql": "TEXT",
+		"configurable": true
+	},
+	"language": {
+		"type": "language",
+		"array": false,
+		"default": "en-US",
+		"min": null,
+		"max": null,
+		"sql": "VARCHAR(5) NOT NULL DEFAULT 'en-US'",
+		"configurable": true
+	},
+	"prefix": {
+		"type": "string",
+		"array": false,
+		"default": "m!",
+		"min": 1,
+		"max": 10,
+		"sql": "VARCHAR(10) NOT NULL DEFAULT 'm!'",
+		"configurable": true
+	},
+	"management": {
+		"type": "Folder",
+		"embedReply": {
+			"type": "boolean",
+			"array": false,
+			"default": false,
+			"min": null,
+			"max": null,
+			"sql": "TEXT DEFAULT false",
+			"configurable": true
+		}
+	}
 }
