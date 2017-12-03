@@ -36,4 +36,4 @@ class Sneyra extends klasa.Client {
 
 }
 
-Sneyra.login(config.token);
+new Sneyra().login(config.token);
