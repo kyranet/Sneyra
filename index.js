@@ -12,24 +12,23 @@ class Sneyra extends klasa.Client {
 
     constructor() {
         super({
-            clientOptions: {
-                disabledEvents: [
-                    'GUILD_BAN_ADD',
-                    'GUILD_BAN_REMOVE',
-                    'TYPING_START',
-                    'RELATIONSHIP_ADD',
-                    'RELATIONSHIP_REMOVE',
-                    'CHANNEL_PINS_UPDATE',
-                    'PRESENCE_UPDATE',
-                    'USER_UPDATE',
-                    'USER_NOTE_UPDATE',
-                    'MESSAGE_REACTION_ADD',
-                    'MESSAGE_REACTION_REMOVE',
-                    'MESSAGE_REACTION_REMOVE_ALL'
-                ]
-            },
-            console: { useColor: true },
+            disabledEvents: [
+                'GUILD_BAN_ADD',
+                'GUILD_BAN_REMOVE',
+                'TYPING_START',
+                'RELATIONSHIP_ADD',
+                'RELATIONSHIP_REMOVE',
+                'CHANNEL_PINS_UPDATE',
+                'PRESENCE_UPDATE',
+                'USER_UPDATE',
+                'USER_NOTE_UPDATE',
+                'MESSAGE_REACTION_ADD',
+                'MESSAGE_REACTION_REMOVE',
+                'MESSAGE_REACTION_REMOVE_ALL'
+            ],
             cmdEditing: true,
+            console: { useColor: true },
+            pieceDefaults: { commands: { deletable: true } },
             prefix: 'm!'
         });
 
