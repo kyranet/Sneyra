@@ -16,7 +16,7 @@ module.exports = class extends Command {
         const { music } = msg.guild;
 
         if (music.voiceChannel.members.size > 4) {
-            const hasPermission = await msg.hasLevel(5);
+            const hasPermission = await msg.hasAtLeastPermissionLevel(5);
             if (hasPermission === false) throw 'You can\'t execute this command when there are over 4 members. You must be at least a Dj Member.';
         }
 
