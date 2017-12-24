@@ -30,7 +30,7 @@ class Sneyra extends klasa.Client {
             console: { useColor: true },
             pieceDefaults: { commands: { deletable: true } },
             prefix: 'm!',
-            regexPrefix: /^(hey )?skyra(,|!)/i
+            regexPrefix: /^(hey )?sneyra(,|!)/i
         });
 
         this.queue = new Music();
