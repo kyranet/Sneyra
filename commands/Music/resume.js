@@ -14,6 +14,7 @@ module.exports = class extends Command {
 
     async run(msg) {
         const { music } = msg.guild;
+        if (music.status === 'idle') throw 'The stream hasnt started yet.';
         if (music.status === 'playing') throw 'The stream is not paused.';
 
         music.pause();
