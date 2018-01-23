@@ -12,6 +12,9 @@ module.exports = class extends Command {
     }
 
     async run(msg) {
+        if (!msg.member) await msg.guild.members.fetch(msg.author.id).catch(() => {
+            throw 'I am sorry, but Discord did not tell me the information I need, so I do not know what voice channel are you connected to...';
+        });
         const { voiceChannel } = msg.member;
         if (!voiceChannel) throw 'You are not connected in a voice channel.';
         this.resolvePermissions(msg, voiceChannel);

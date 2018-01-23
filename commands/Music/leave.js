@@ -16,7 +16,7 @@ module.exports = class extends Command {
         const { music } = msg.guild;
         await music.leave();
 
-        return msg.send(`Successfully left the voice channel ${msg.member.voiceChannel}`);
+        return msg.send(`Successfully left the voice channel ${msg.guild.me.voiceChannel}`);
     }
 
 };
