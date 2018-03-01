@@ -3,7 +3,7 @@ const { Extendable } = require('klasa');
 module.exports = class extends Extendable {
 
     constructor(...args) {
-        super(...args, ['Guild']);
+        super(...args, { appliesTo: ['Guild'] });
     }
 
     get extend() {
