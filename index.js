@@ -3,10 +3,10 @@ const Music = require('./lib/Music');
 const config = require('./config.json');
 
 klasa.Client.defaultPermissionLevels
-    .addLevel(5, false, (client, msg) => msg.member && msg.guild.configs.dj && msg.member.roles.has(msg.guild.configs.dj))
-    .addLevel(6, false, (client, msg) => msg.member &&
+    .add(5, (client, msg) => msg.member && msg.guild.configs.dj && msg.member.roles.has(msg.guild.configs.dj), { fetch: true })
+    .add(6, (client, msg) => msg.member &&
         ((msg.guild.configs.administrator && msg.member.roles.has(msg.guild.configs.administrator)) ||
-            msg.member.permissions.has('MANAGE_GUILD')));
+            msg.member.permissions.has('MANAGE_GUILD')), { fetch: true });
 
 class Sneyra extends klasa.Client {
 
