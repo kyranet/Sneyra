@@ -1,19 +1,24 @@
 {
   "name": "sneyra",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Extension of Skyra - Music-only bot.",
-  "main": "index.js",
+  "main": "src/Sneyra.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kyraNET",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "github:discordjs/discord.js",
-    "ffmpeg-binaries": "^3.2.2",
-    "fs-nextra": "^0.3.2",
+    "discord.js": "github:discordjs/discord.js#voice-krypton",
+    "fs-nextra": "0.3.4",
     "klasa": "github:dirigeants/klasa",
-    "node-opus": "^0.2.7",
-    "ytdl-core": "^0.18.7"
+    "krypton": "github:Hackzzila/krypton#d0871c7b44db46e708f170abda081a7429c8400d",
+    "prism-media": "github:hydrabolt/prism-media",
+    "rethinkdbdash": "^2.3.31",
+    "ytdl-core": "^0.20.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-klasa": "github:dirigeants/klasa-lint"
   }
 }
