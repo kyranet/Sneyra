@@ -305,7 +305,7 @@ class MusicManager {
 					self_deaf: false
 				}
 			});
-		/* eslint-enable camelcase */
+			/* eslint-enable camelcase */
 		}
 	}
 
