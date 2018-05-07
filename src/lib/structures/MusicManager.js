@@ -161,7 +161,7 @@ class MusicManager {
 		});
 
 		const metadata = {
-			url: song.video_id,
+			url: song.video_id.replace(/@(here|everyone)/, '@\u200B$1'),
 			title: song.title,
 			requester: user,
 			loudness: song.loudness,
