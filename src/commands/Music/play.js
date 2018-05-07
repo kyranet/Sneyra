@@ -27,8 +27,6 @@ module.exports = class extends MusicCommand {
 
 	async play(music) {
 		while (music.queue.length) {
-			if (music.playing) return null;
-
 			const [song] = music.queue;
 			await music.channel.send(`🎧 Playing: **${song.title}** as requested by: **${song.requester}**`);
 			await sleep(300);
@@ -55,6 +53,10 @@ module.exports = class extends MusicCommand {
 				music.leave();
 				break;
 			}
+
+			// If the stream was externally stopped, for
+			// example when Sneyra leaves,stop the loop
+			if (!music.playing) return null;
 		}
 
 		return music.channel.send('⏹ Queue is empty').then(() => music.leave());
