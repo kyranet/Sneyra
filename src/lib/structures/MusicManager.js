@@ -123,20 +123,18 @@ class MusicManager {
 	 * @readonly
 	 */
 	get playing() {
-		const { connection } = this;
-		return connection && connection.speaking;
+		return !this.paused && !this.idling;
 	}
 
 	/**
 	 * Whether Sneyra has the queue paused or not
 	 * @since 2.0.0
-	 * @type {boolean}
+	 * @type {?boolean}
 	 * @readonly
 	 */
 	get paused() {
-		const { connection } = this;
-		const { dispatcher } = connection;
-		return connection && !connection.speaking && dispatcher;
+		const { dispatcher } = this;
+		return dispatcher ? dispatcher.paused : null;
 	}
 
 	/**
