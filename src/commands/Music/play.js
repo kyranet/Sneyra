@@ -10,12 +10,12 @@ module.exports = class extends MusicCommand {
 		const { music } = msg.guild;
 
 		if (!music.queue.length)
-			return msg.sendMessage(`Add some songs to the queue first with ${msg.guild.configs.prefix}add`);
+			return msg.sendMessage(`I have no disk in my deck, you may want to give me some songs with \`${msg.guild.configs.prefix}add\``);
 
 		if (!music.voiceChannel) await this.client.commands.get('join').run(msg);
 
 		if (music.playing) {
-			return msg.sendMessage('Already Playing');
+			return msg.sendMessage('Hey! The disk is already spinning!');
 		} else if (music.paused) {
 			music.resume();
 			return msg.sendMessage(`There was a track going on! Playing it back! Now playing: ${music.queue[0].title}!`);
@@ -32,34 +32,37 @@ module.exports = class extends MusicCommand {
 			await sleep(300);
 
 			try {
-				await new Promise((resolve) => {
-					music.play()
+				if (!await new Promise(async (resolve) => {
+					(await music.play())
 						.on('end', () => {
 							music.skip();
-							resolve();
+							resolve(true);
 						})
 						.on('error', (err) => {
-							music.channel.send('Something very weird happened! Sorry for the incovenience :(');
-							music.client.emit('log', err, 'error');
+							music.channel.send('Whoops! This disk broke!');
+							music.client.emit('error', err);
 							music.skip();
-							resolve();
+							resolve(true);
+						})
+						.once('disconnect', () => {
+							resolve(false);
 						});
-				});
+				})) return;
 
 				// Autofetch if the autoplayer is enabled
 				if (!music.queue.length && music.autoplay) await this.autoPlayer(music);
 			} catch (error) {
+				this.client.emit('error', error);
 				music.channel.send(error);
 				music.leave();
 				break;
 			}
-
-			// If the stream was externally stopped, for
-			// example when Sneyra leaves,stop the loop
-			if (!music.playing) return null;
 		}
 
-		return music.channel.send('⏹ Queue is empty').then(() => music.leave());
+		if (!music.queue.length) {
+			music.channel.send('⏹ From 1 to 10, being 1 the worst score and 10 the best, how would you rate the session? It just ended!')
+				.then(() => music.leave());
+		}
 	}
 
 	autoPlayer(music) {

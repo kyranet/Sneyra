@@ -25,7 +25,7 @@ module.exports = class extends MusicCommand {
 
 		return msg.sendMessage(enabled
 			? `Sure thing! I'll keep playing decks until you get bored!`
-			: `I guess the selection of music I had was not very well, I stopped auto-playing songs, just make sure to give me some songs later!`);
+			: `I stopped auto-playing songs, just make sure to give me some songs later!`);
 	}
 
 };

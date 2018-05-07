@@ -161,8 +161,8 @@ class MusicManager {
 		});
 
 		const metadata = {
-			url: song.video_id.replace(/@(here|everyone)/, '@\u200B$1'),
-			title: song.title,
+			url: song.video_id,
+			title: song.title.replace(/@(here|everyone)/, '@\u200B$1'),
 			requester: user,
 			loudness: song.loudness,
 			seconds: parseInt(song.length_seconds),
@@ -209,19 +209,28 @@ class MusicManager {
 	 * @returns {Promise<this>}
 	 */
 	async leave() {
-		if (!this.voiceChannel) throw 'I am not in a voice channel.';
+		if (!this.voiceChannel) throw 'I already left the voice channel! You might want me to be in one in order to leave it...';
 		await this.voiceChannel.leave();
+		if (this.voiceChannel) this.forceDisconnect();
 
 		// Reset the status
 		return this.clear();
 	}
 
-	play() {
-		if (!this.voiceChannel) throw 'I am not in a voice channel.';
-		else if (!this.connection) throw 'I could not find a connection.';
-		else if (this.queue.length === 0) throw 'The queue is empty.';
+	async play() {
+		if (!this.voiceChannel) throw 'Where am I supposed to play the music? I am not in a voice channel!';
+		if (!this.connection) {
+			await this.channel.send(`This dj table isn't connected! Let me unplug and plug it again`)
+				.catch(error => this.client.emit('error', error));
 
-		const song = this.queue[0];
+			const { voiceChannel } = this;
+			this.forceDisconnect();
+			await this.join(voiceChannel);
+			if (!this.connection) throw 'This dj table is broken! Try again later...';
+		}
+		if (!this.queue.length) throw 'No songs left in the queue!';
+
+		const [song] = this.queue;
 
 		const stream = ytdl(`https://youtu.be/${song.url}`, {
 			filter: song.opus
@@ -278,6 +287,26 @@ class MusicManager {
 		this._next = null;
 
 		return this;
+	}
+
+	forceDisconnect() {
+		const { connection } = this;
+		if (connection) {
+			connection.disconnect();
+		} else {
+			/* eslint-disable camelcase */
+			this.client.ws.send({
+				op: 4,
+				shard: this.client.shard ? this.client.shard.id : 0,
+				d: {
+					guild_id: this.guild.id,
+					channel_id: null,
+					self_mute: false,
+					self_deaf: false
+				}
+			});
+		/* eslint-enable camelcase */
+		}
 	}
 
 }
