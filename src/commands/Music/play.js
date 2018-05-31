@@ -10,9 +10,9 @@ module.exports = class extends MusicCommand {
 		const { music } = msg.guild;
 
 		if (!music.queue.length)
-			return msg.sendMessage(`I have no disk in my deck, you may want to give me some songs with \`${msg.guild.configs.prefix}add\``);
+			return msg.sendMessage(`Deck's empty my friend, add some songs to the queue with the \`${msg.guild.configs.prefix}add\` command so I can play them.`);
 
-		if (!music.voiceChannel) await this.client.commands.get('join').run(msg);
+		if (!music.voiceChannel) await this.store.get('join').run(msg);
 
 		if (music.playing) {
 			return msg.sendMessage('Hey! The disk is already spinning!');
