@@ -1,7 +1,8 @@
 const { MusicCommand, config: { GOOGLE_SEARCH } } = require('../../index');
-const { get } = require('snekfetch');
+const fetch = require('node-fetch');
+const qs = require('querystring');
 
-const URL = 'https://www.googleapis.com/youtube/v3/search';
+const URL = 'https://www.googleapis.com/youtube/v3/search?';
 
 module.exports = class extends MusicCommand {
 
@@ -26,12 +27,15 @@ module.exports = class extends MusicCommand {
 		const id = MusicCommand.YOUTUBE_REGEXP.exec(url);
 		if (id) return `https://youtu.be/${id[1]}`;
 
-		const { body } = await get(URL)
-			.query('part', 'snippet')
-			.query('q', url)
-			.query('key', GOOGLE_SEARCH);
+		const query = qs.stringify({
+			part: 'snippet',
+			q: url,
+			key: GOOGLE_SEARCH
+		});
+		const { items } = await fetch(URL + query)
+			.then(result => result.json());
 
-		const video = body.items.find(item => item.id.kind !== 'youtube#channel');
+		const video = items.find(item => item.id.kind === 'youtube#video');
 		return video ? `https://youtu.be/${video.id.videoId}` : null;
 	}
 
