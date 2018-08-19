@@ -10,11 +10,11 @@
   "license": "MIT",
   "dependencies": {
     "discord.js": "github:discordjs/discord.js",
-    "fs-nextra": "^0.3.5",
+    "fs-nextra": "^0.3.7",
     "klasa": "github:dirigeants/klasa",
     "node-opus": "^0.3.0",
     "rethinkdbdash": "^2.3.31",
-    "ytdl-core": "^0.20.4"
+    "ytdl-core": "^0.24.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

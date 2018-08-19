@@ -11,7 +11,7 @@ module.exports = class extends MusicCommand {
 
 	async run(msg) {
 		msg.guild.music.clear();
-		if (msg.guild.me.voiceChannel) await msg.guild.me.voiceChannel.leave();
+		if (msg.guild.me.voice.channel) await msg.guild.me.voice.channel.leave();
 		return msg.sendMessage('Successfully restarted the music module.');
 	}
 

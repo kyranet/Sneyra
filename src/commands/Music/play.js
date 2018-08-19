@@ -10,7 +10,7 @@ module.exports = class extends MusicCommand {
 		const { music } = msg.guild;
 
 		if (!music.queue.length)
-			return msg.sendMessage(`Deck's empty my friend, add some songs to the queue with the \`${msg.guild.configs.prefix}add\` command so I can play them.`);
+			return msg.sendMessage(`Deck's empty my friend, add some songs to the queue with the \`${msg.guild.settings.prefix}add\` command so I can play them.`);
 
 		if (!music.voiceChannel) await this.store.get('join').run(msg);
 
