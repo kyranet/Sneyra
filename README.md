@@ -33,3 +33,4 @@ Once finished:
 - In the folder from where you ran the git command, run `cd Sneyra` and then run `npm install`
 - Rename `config.json.example` to `config.json`
 - Edit `config.json` and enter your bot token and the YouTube Search API token.
+- **NEVER UPLOAD THIS FILE WITH YOUR TOKENS ANYWHERE, TO DO SO, YOU ARE LETTING OTHER PEOPLE USE THE TOKEN TO DESTROY ALL THE GUILDS YOUR BOT IS IN. IF YOU DID, RESET YOUR TOKEN IN DISCORD'S APPLICATION PAGE**.
