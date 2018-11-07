@@ -14,7 +14,7 @@
     "klasa": "github:dirigeants/klasa",
     "node-opus": "^0.3.1",
     "rethinkdbdash": "^2.3.31",
-    "ytdl-core": "^0.27.1"
+    "ytdl-core": "^0.28.0"
   },
   "devDependencies": {
     "eslint": "^5.8.0",
