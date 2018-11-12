@@ -13,6 +13,7 @@ module.exports = class extends MusicCommand {
 	async run(msg, [force]) {
 		const { music } = msg.guild;
 
+		if (music.queue.length < 1) throw '`❌` | No Songs in the queue to skip!';
 		if (music.voiceChannel.members.size > 4) {
 			if (force) {
 				if (!await msg.hasAtLeastPermissionLevel(5)) throw 'You can\'t execute this command with the force flag. You must be at least a Moderator Member.';
