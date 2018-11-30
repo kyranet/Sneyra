@@ -6,8 +6,8 @@ require('./lib/extensions/SneyraGuild');
 
 // Modify the permission levels
 Client.defaultPermissionLevels
-	.add(5, (client, msg) => msg.member && msg.guild.settings.dj && msg.member.roles.has(msg.guild.settings.dj), { fetch: true })
-	.add(6, (client, msg) => msg.member
+	.add(5, (msg) => msg.member && msg.guild.settings.dj && msg.member.roles.has(msg.guild.settings.dj), { fetch: true })
+	.add(6, (msg) => msg.member
 		&& ((msg.guild.settings.administrator && msg.member.roles.has(msg.guild.settings.administrator))
             || msg.member.permissions.has('MANAGE_GUILD')), { fetch: true });
 
