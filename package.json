@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "discord.js": "github:discordjs/discord.js",
-    "fs-nextra": "^0.3.8",
+    "fs-nextra": "^0.4.3",
     "klasa": "github:dirigeants/klasa",
     "node-opus": "^0.3.1",
     "rethinkdbdash": "^2.3.31",
