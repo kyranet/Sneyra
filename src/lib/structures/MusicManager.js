@@ -295,7 +295,7 @@ class MusicManager {
 			connection.disconnect();
 		} else {
 			/* eslint-disable camelcase */
-			this.client.ws.shards.first().send({
+			this.guild.shard.send({
 				op: 4,
 				shard: this.client.shard ? this.client.shard.id : 0,
 				d: {
