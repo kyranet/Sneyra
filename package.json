@@ -4,7 +4,7 @@
   "description": "Extension of Skyra - Music-only bot.",
   "main": "src/Sneyra.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:lint": "eslint --fix src"
   },
   "author": "kyraNET",
   "license": "MIT",
