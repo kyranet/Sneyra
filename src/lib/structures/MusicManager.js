@@ -233,8 +233,7 @@ class MusicManager {
 
 		const [song] = this.queue;
 
-		const stream = await ytdlDiscord(`https://youtu.be/${song.url}`)
-			.catch(err => this.client.emit('error', err));
+		const stream = await ytdlDiscord(`https://youtu.be/${song.url}`);
 
 		this.connection.play(stream, {
 			bitrate: this.voiceChannel.bitrate / 1000,
