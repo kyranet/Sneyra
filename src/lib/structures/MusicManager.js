@@ -1,5 +1,6 @@
 const { util: { codeBlock } } = require('klasa');
 const ytdl = require('ytdl-core');
+const ytdlDiscord = require('ytdl-core-discord');
 const getInfoAsync = require('util').promisify(ytdl.getInfo);
 
 class MusicManager {
@@ -232,16 +233,13 @@ class MusicManager {
 
 		const [song] = this.queue;
 
-		const stream = ytdl(`https://youtu.be/${song.url}`, {
-			filter: song.opus
-				? format => format.type === 'audio/webm; codecs="opus"'
-				: 'audioonly'
-		}).on('error', err => this.client.emit('error', err));
+		const stream = await ytdlDiscord(`https://youtu.be/${song.url}`)
+			.catch(err => this.client.emit('error', err));
 
 		this.connection.play(stream, {
 			bitrate: this.voiceChannel.bitrate / 1000,
 			passes: 5,
-			type: song.opus ? 'webm/opus' : 'unknown',
+			type: song.opus ? 'opus' : 'unknown',
 			volume: false
 		});
 
