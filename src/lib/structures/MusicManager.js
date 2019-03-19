@@ -219,7 +219,6 @@ class MusicManager {
 	}
 
 	async play() {
-		if (!this.voiceChannel) throw 'Where am I supposed to play the music? I am not in a voice channel!';
 		if (!this.connection) {
 			await this.channel.send(`This dj table isn't connected! Let me unplug and plug it again`)
 				.catch(error => this.client.emit('error', error));
