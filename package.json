@@ -18,7 +18,7 @@
     "ytdl-core-discord": "^1.0.3"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
+    "eslint": "^6.1.0",
     "eslint-config-klasa": "github:dirigeants/klasa-lint"
   }
 }
