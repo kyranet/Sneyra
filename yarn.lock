@@ -209,8 +209,8 @@ delayed-stream@~1.0.0:
 
 "discord.js@github:discordjs/discord.js":
   version "12.0.0-dev"
-  uid "5af8cb8e6e7591e81f758a8b0f6748db7c2f12f1"
-  resolved "https://codeload.github.com/discordjs/discord.js/tar.gz/5af8cb8e6e7591e81f758a8b0f6748db7c2f12f1"
+  uid d14db521585f2b6b1a6c50d3a9acecc73bea25a3
+  resolved "https://codeload.github.com/discordjs/discord.js/tar.gz/d14db521585f2b6b1a6c50d3a9acecc73bea25a3"
   dependencies:
     form-data "^2.3.3"
     node-fetch "^2.3.0"
