@@ -18,6 +18,13 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+abort-controller@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/abort-controller/-/abort-controller-3.0.0.tgz#eaf54d53b62bae4138e809ca225c8439a6efb392"
+  integrity sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==
+  dependencies:
+    event-target-shim "^5.0.0"
+
 acorn-jsx@^5.0.0:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.0.1.tgz#32a064fd925429216a09b141102bfdd185fae40e"
@@ -209,9 +216,10 @@ delayed-stream@~1.0.0:
 
 "discord.js@github:discordjs/discord.js":
   version "12.0.0-dev"
-  uid "3fcc862c5fa336bb26c570655245d57e2e532f20"
-  resolved "https://codeload.github.com/discordjs/discord.js/tar.gz/3fcc862c5fa336bb26c570655245d57e2e532f20"
+  uid fbd811517a298b857f9fd963d8fb13c4c1207f90
+  resolved "https://codeload.github.com/discordjs/discord.js/tar.gz/fbd811517a298b857f9fd963d8fb13c4c1207f90"
   dependencies:
+    abort-controller "^3.0.0"
     form-data "^2.3.3"
     node-fetch "^2.3.0"
     pako "^1.0.8"
@@ -342,6 +350,11 @@ esutils@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
   integrity sha1-Cr9PHKpbyx96nYrMbepPqqBLrJs=
+
+event-target-shim@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
+  integrity sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==
 
 external-editor@^3.0.3:
   version "3.0.3"
