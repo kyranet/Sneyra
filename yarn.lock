@@ -580,8 +580,8 @@ json-stable-stringify-without-jsonify@^1.0.1:
 
 "klasa@github:dirigeants/klasa":
   version "0.5.0-dev"
-  uid c514ace7c260424b4562e9253fde18b13b086f79
-  resolved "https://codeload.github.com/dirigeants/klasa/tar.gz/c514ace7c260424b4562e9253fde18b13b086f79"
+  uid "9ae936a59187b62517ae1591efa22c507c98391f"
+  resolved "https://codeload.github.com/dirigeants/klasa/tar.gz/9ae936a59187b62517ae1591efa22c507c98391f"
   dependencies:
     fs-nextra "^0.4.5"
 
